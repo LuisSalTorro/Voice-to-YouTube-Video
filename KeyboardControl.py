@@ -16,12 +16,12 @@ def typeYoutube():
     keyboard.release(Key.enter)
 
 
-# types pewds into the search bar
-def typePewds(channelName):
+# types into searchbar into the search bar
+def typeIntoSearchBar(searchRequest):
     keyboard = Controller()
-    time.sleep(3)
-    channel = channelName
-    for char in channel:
+    time.sleep(2)
+    search = searchRequest
+    for char in search:
         keyboard.press(char)
         keyboard.release(char)
         time.sleep(0.03)

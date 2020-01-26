@@ -6,23 +6,23 @@ import MouseControl as Mouse
 
 def readVoice():
     r = sr.Recognizer()
+    #r.energy_threshold = 300 #changes the level of how loud I need to be. Default is 300
     mic = sr.Microphone()
     with mic as source:
         print('What channel do you want to watch?\n')
         audio = r.listen(source)
         try:
             text = r.recognize_google(audio)
-            # print('You said: {}
             return text
         except:
             print("Nothing")
 
 
-channelToWatch = readVoice()
-print(channelToWatch)
+searchRequest = readVoice()
+print(searchRequest)
 Mouse.openFirefoxIncognito()
 Keyboard.typeYoutube()
 Mouse.clickSearchBar()
-Keyboard.typePewds(channelToWatch)
+Keyboard.typeIntoSearchBar(searchRequest)
 Mouse.clickPewdiepieVideo()
 Keyboard.hitFForFullScreen()
